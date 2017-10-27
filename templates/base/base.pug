@@ -1,0 +1,45 @@
+doctype html
+- load staticfiles
+html(lang="es")
+	head
+		meta(charset="UTF-8")
+		- block extrastatic
+		- endblock
+		link(rel="stylesheet", href="{% static 'css/bootstrap.css' %}")
+		title {% block title %}Document{% endblock %}
+	body
+		.container
+			- block navbar
+			.bs-docs-section.clearfix
+				.row
+					.col-lg-12
+						.bs-component
+							nav.navbar.navbar-default
+								.container-fluid
+									.navbar-header
+										a.navbar-brand(href="#") Home
+									#bs-example-navbar-collapse-1.collapse.navbar-collapse
+										ul.nav.navbar-nav
+											li.dropdown
+												a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-expanded="false")
+													| Menu
+													span.caret
+										ul.nav.navbar-nav.navbar-right
+											li.dropdown
+												a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-expanded="false")
+													| Opciones
+													span.caret
+												ul.dropdown-menu(role="menu")
+													li
+														a(href="#") Salir
+			- endblock
+			- block content
+			h4 	Bloque de contenido		
+			- endblock
+			- block footer
+			h6 footer
+			- endblock
+		script(src="https://code.jquery.com/jquery-1.10.2.min.js")
+		script(src="{% static 'js/bootstrap.min.js' %}")
+		- block extrajs
+		- endblock
